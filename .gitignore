@@ -1,0 +1,29 @@
+# --- JAVA / MAVEN ---
+**/target/
+**.class
+**/mvnw
+**/mvnw.cmd
+**/.mvn/
+.metadata
+.classpath
+.project
+.settings/
+
+# --- ANGULAR / NODE ---
+**/node_modules/
+**/dist/
+.angular/
+.npm/
+**/package-lock.json
+
+# --- IDEs (IntelliJ, VS Code) ---
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+
+# --- SISTEMA Y SEGURIDAD ---
+.DS_Store
+Thumbs.db
+# Si decides no subir tu config de BD real:
+# **/src/main/resources/application.properties

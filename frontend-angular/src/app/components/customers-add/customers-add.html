@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card shadow border-0">
+        <div class="card-header bg-primary text-white py-3">
+          <h4 class="mb-0 text-center">
+            {{ id ? 'Actualizar Cliente #' + id : 'Registrar Nuevo Cliente' }}
+          </h4>
+        </div>
+
+        <div class="card-body p-4">
+          <form (ngSubmit)="guardarCliente()">
+
+            <div class="mb-3">
+              <label for="firstName" class="form-label fw-bold">Nombres</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                <input [(ngModel)]="firstName" type="text" class="form-control" id="firstName" name="firstName" placeholder="Ej: Juan Carlos" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="lastName" class="form-label fw-bold">Apellidos</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-person-badge"></i></span>
+                <input [(ngModel)]="lastName" type="text" class="form-control" id="lastName" name="lastName" placeholder="Ej: Gadea" required>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="email" class="form-label fw-bold">Correo Electrónico</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-envelope"></i></span>
+                <input [(ngModel)]="email" type="email" class="form-control" id="email" name="email" placeholder="nombre@correo.com" required>
+              </div>
+              <div id="emailHelp" class="form-text">
+                {{ id ? 'Asegúrate de que el correo siga siendo válido.' : 'Nunca compartiremos tu correo con nadie más.' }}
+              </div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                <i class="bi bi-save me-2"></i>
+                {{ id ? 'Guardar Cambios' : 'Crear Cliente' }}
+              </button>
+
+              <a routerLink="/lista" class="btn btn-outline-secondary">
+                <i class="bi bi-list-ul me-2"></i> Ver Listado de Clientes
+              </a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

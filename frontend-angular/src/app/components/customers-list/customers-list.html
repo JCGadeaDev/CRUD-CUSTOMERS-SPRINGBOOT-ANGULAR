@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-primary fw-bold">Listado de Customers</h2>
+    <a routerLink="/" class="btn btn-primary shadow-sm">
+       <i class="bi bi-person-plus-fill me-2"></i>Agregar Nuevo Cliente
+    </a>
+  </div>
+
+  <div class="card shadow border-0">
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" class="ps-4">ID</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Email</th>
+            <th scope="col" class="text-center">Acciones</th> </tr>
+        </thead>
+        <tbody>
+          @for (c of customers; track c.id) {
+            <tr>
+              <th scope="row" class="ps-4">{{ c.id }}</th>
+              <td>{{ c.firstName }}</td>
+              <td>{{ c.lastName }}</td>
+              <td>{{ c.email }}</td>
+              <td class="text-center">
+                <button type="button"
+                class="btn btn-sm btn-outline-warning shadow-sm me-2"
+                (click)="editCustomer(c.id!)"
+                aria-label="Editar cliente">
+                <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-danger shadow-sm" (click)="deleteCustomer(c.id!)" aria-label="Eliminar cliente">
+                  <i class="bi bi-trash3-fill"></i>
+                </button>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5" class="text-center py-4 text-muted">No hay clientes para mostrar.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
